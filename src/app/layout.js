@@ -1,6 +1,7 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { UserContextProvider } from "./context/User";
+import { UserContextProvider } from "../context/User";
+import { GlobalContextProvider } from "../context/Global";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -16,9 +17,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body className={`${montserrat.variable} antialiased`}>
-        <UserContextProvider>
-          {children}
-        </UserContextProvider>
+        <GlobalContextProvider>
+          <UserContextProvider>
+            {children}
+          </UserContextProvider>
+        </GlobalContextProvider>
       </body>
     </html>
   );

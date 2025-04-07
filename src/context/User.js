@@ -14,6 +14,7 @@ export const UserContextProvider = ({ children }) => {
         }
     }, [])
 
+
     const updatePlayers = (e) => {
         setPlayers(e)
         localStorage.setItem("301-players", JSON.stringify(e))
@@ -23,10 +24,27 @@ export const UserContextProvider = ({ children }) => {
         updatePlayers([...players, e])
     }
 
+    const updatePlayer = (id, player) => {
+        const items = players.filter(item => item.id != id)
+
+        updatePlayers([...items, player])
+    }
+
+    const deletePlayer = (id) => {
+        const items = players.filter(item => item.id != id)
+
+        updatePlayers([...items])
+    }
+
+    const getPlayer = (id) => players?.find(item => item.id == id) ?? null
+
     return <UserContext.Provider value={{
         players,
         updatePlayers,
-        addPlayer
+        updatePlayer,
+        addPlayer,
+        deletePlayer,
+        getPlayer
     }}>
         {children}
     </UserContext.Provider>
