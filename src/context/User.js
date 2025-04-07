@@ -1,7 +1,6 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { formatDefault } from '@/utils/format';
 
 const UserContext = createContext();
 
@@ -10,7 +9,9 @@ export const UserContextProvider = ({ children }) => {
 
     useEffect(() => {
         if (window) {
-            setPlayers(JSON.parse(formatDefault(localStorage.getItem("301-players"), [])))
+            let localPlayers = localStorage.getItem("301-players") ?? null
+
+            setPlayers(localPlayers ? JSON.parse(localPlayers) : [])
         }
     }, [])
 
