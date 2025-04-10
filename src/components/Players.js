@@ -10,7 +10,7 @@ const Players = () => {
     const { players } = useUser()
 
     return <Card title="Joueurs">
-        <div className="flex gap-2 overflow-auto px-4">
+        <div className="flex items-center gap-2 overflow-auto px-4">
             <ProfileCard href="/joueurs/ajouter" placeholder="green" title="Ajouter" icon="add" />
             {players?.length > 0 && players?.map((item, index) => <ProfileCard href={`/joueurs/${item.id}`} key={index} title={item.pseudo} image={item.image} />)}
         </div>

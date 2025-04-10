@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const Top = dynamic(() => import('../components/Top'))
 const Container = dynamic(() => import('../components/Container'))
@@ -8,7 +9,7 @@ const Players = dynamic(() => import('../components/Players'))
 export default function Home() {
   return <>
     <Top>
-      <img src="/logo.svg" className="h-[48px] w-auto" alt="301 Counter" />
+      <Image src="/logo.svg" alt="301 Counter" width={0} height={0} sizes="100vw" className="h-[48px] w-auto" />
     </Top>
     <Container>
       <Button>Nouvelle partie</Button>

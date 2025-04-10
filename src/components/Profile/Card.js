@@ -1,6 +1,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 
 const Heading = dynamic(() => import('../Heading'))
 const Icon = dynamic(() => import('../Icon'))
@@ -31,13 +32,11 @@ const Card = ({ image, title, size, border, background, placeholder, className, 
         default: styleFillIcon += "fill-white"
     }
 
-    let style = `flex flex-col items-center gap-2 p-3 rounded-xl ${styleBackground} ${styleBorder} ${className ?? ""}`
-
-    console.log(image)
+    let style = `flex flex-col items-center gap-2 rounded-xl p-4 ${styleBackground} ${styleBorder} ${className ?? ""}`
 
     const Content = () => <>
-        <div className={`relative size-12 overflow-hidden rounded-full flex justify-center items-center ${stylePlaceholder}`}>
-            {image && <img src={image.url} alt={title} className="inset-0 object-cover" />}
+        <div className={`relative size-14 overflow-hidden rounded-full flex justify-center items-center ${stylePlaceholder}`}>
+            {image && <Image src={image?.url} alt={title} width={0} height={0} sizes="100vw" className="w-full h-full object-cover" />}
             {icon && <Icon fill="auto" name={icon} className={styleFillIcon} />}
         </div>
         <Heading level="4" className="text-center">{title}</Heading>

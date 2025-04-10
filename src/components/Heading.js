@@ -10,7 +10,7 @@ const Heading = ({ level, tag, children, className }) => {
             break
         case '3': style += "text-[16px] font-semibold"
             break
-        case '4': style += "text-[10px]"
+        case '4': style += "text-[12px] font-semibold"
             break
         default: break
     }
