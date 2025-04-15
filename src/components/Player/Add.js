@@ -37,7 +37,7 @@ const Add = () => {
         </Card>
         <Card title="Avatar">
             <div className="flex flex-col gap-2">
-                {avatars?.map((group, a) => <ul key={a} className="flex items-center gap-2 overflow-auto px-4">
+                {avatars?.map((group, a) => <ul key={a} className="flex items-center gap-2 overflow-auto hide-scrollbar px-4">
                     {group?.items?.map((item, b) => <li key={b} className="flex">
                         <Picture onClick={() => handleChange({ image: item })} url={item.url} alt={item.title} border active={params?.image?.id == item.id} />
                     </li>)}

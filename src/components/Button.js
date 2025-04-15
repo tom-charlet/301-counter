@@ -14,7 +14,7 @@ const Button = ({ tag, children, href, color, className, ...props }) => {
             break
     }
 
-    let style = `rounded-xl py-3 px-6 font-medium text-[16px] font-semibold tracking-wide cursor-pointer outline-none ${colorStyle} ${className ?? ""}`
+    let style = `rounded-xl py-3 px-6 font-medium text-[16px] font-semibold tracking-wide cursor-pointer outline-none text-center ${colorStyle} ${className ?? ""}`
 
     return <>
         {href ? <Link {...props} href={href} className={style}> {children}

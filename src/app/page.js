@@ -12,7 +12,7 @@ export default function Home() {
       <Image src="/logo.svg" alt="301 Counter" width={0} height={0} sizes="100vw" className="h-[48px] w-auto" />
     </Top>
     <Container>
-      <Button>Nouvelle partie</Button>
+      <Button href="/partie">Nouvelle partie</Button>
       <Players />
     </Container>
   </>

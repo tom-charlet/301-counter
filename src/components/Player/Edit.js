@@ -36,15 +36,13 @@ const Edit = ({ data }) => {
         deletePlayer(data?.id)
     }
 
-    console.log(params)
-
     return <>
         <Card title="Pseudo" contentClassName="px-4">
             <Input value={params?.pseudo ?? ""} onChange={e => handleChange({ pseudo: formatUpperFirst(e.target.value ?? "") })} placeholder="Pseudo" />
         </Card>
         <Card title="Avatar">
             <div className="flex flex-col gap-2">
-                {avatars?.map((group, a) => <ul key={a} className="flex items-center gap-2 overflow-auto px-4">
+                {avatars?.map((group, a) => <ul key={a} className="flex items-center gap-2 overflow-auto hide-scrollbar px-4">
                     {group?.items?.map((item, b) => <li key={b} className="flex">
                         <Picture onClick={() => handleChange({ image: item })} url={item.url} alt={item.title} border active={params?.image?.id == item.id} />
                     </li>)}
